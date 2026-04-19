@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Мой первый сайт с мозгами - урок 2</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>AI киносоветчик</h1>
+        <p>Введите фразу о своём настроении. Искусственный интелект подберёт вам фильм</p>
+    <form method="post">
+
+    <textarea name="message"
+    rows="4"
+    cols="50"
+    required>{{ user_text }}</textarea><br>
+
+    <button type="submit">Анализировать</button>
+
+    </form>
+
+    {% if recommendation %}
+
+    <div class="result">
+    <h3>Рекомендация:</h3>
+    <p>{{ recommendation|safe }}</p>
+    </div>
+
+    {% endif %}
+
+    </body>
+    </html>
